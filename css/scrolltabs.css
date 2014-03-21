@@ -1,0 +1,162 @@
+/************ SCROLL TABS *************/
+.scroll_tabs_container {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  text-align: left;
+  height: 42px;
+  margin-bottom: 10px;
+}
+
+.scroll_tabs_container div.scroll_tab_inner {
+  height: 42px;
+}
+
+.scroll_tabs_container div.scroll_tab_inner span {
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 40px;
+  font-size: 14px;
+  background-color: #CCCCCC;
+  border-left: 1px solid #999999;
+  border-top: 1px solid #999999;
+  border-bottom: 1px solid #999999;
+  color: #333333;
+  cursor: pointer;
+}
+
+.scroll_tabs_container div.scroll_tab_inner span.scroll_tab_first {
+  background-color: #CCCCCC;
+  border-left: 0px;
+}
+
+.scroll_tabs_container div.scroll_tab_inner span.scroll_tab_over {
+  background-color: #999999;
+}
+
+.scroll_tabs_container div.scroll_tab_inner span.scroll_tab_first.scroll_tab_over {
+  background-color: #999999;
+}
+
+.scroll_tabs_container div.scroll_tab_inner span.scroll_tab_first.scroll_tab_over {
+  background-color: #999999;
+}
+
+.scroll_tabs_container div.scroll_tab_inner span.scroll_tab_left_finisher {
+  padding: 0px;
+  width: 10px;
+  background-color: #CCCCCC;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.scroll_tabs_container div.scroll_tab_inner span.scroll_tab_left_finisher.scroll_tab_over {
+  background-color: #999999;
+}
+.scroll_tabs_container div.scroll_tab_inner span.scroll_tab_left_finisher.tab_selected {
+  background-color: #AAAAAA;
+}
+
+.scroll_tabs_container div.scroll_tab_inner span.scroll_tab_right_finisher {
+  padding: 0px;
+  width: 10px;
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #CCCCCC;
+  border-left: 0px;
+  border-right: 1px solid #999999;
+}
+.scroll_tabs_container div.scroll_tab_inner span.scroll_tab_right_finisher.scroll_tab_over {
+  background-color: #999999;
+}
+.scroll_tabs_container div.scroll_tab_inner span.scroll_tab_right_finisher.tab_selected {
+  background-color: #AAAAAA;
+}
+
+
+.scroll_tabs_container .scroll_tab_left_button {
+  height: 42px;
+  background-color: #CCCCCC;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 1px solid #999999;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.scroll_tabs_container .scroll_tab_left_button::before {
+  content: "\25C0";
+  line-height: 40px;
+  padding-left: 5px;
+}
+
+.scroll_tabs_container .scroll_tab_left_button.scroll_arrow_over {
+  background-color: #999999;
+}
+
+.scroll_tabs_container .scroll_tab_left_button.scroll_arrow_over {
+  background-color: #999999;
+}
+
+.scroll_tabs_container .scroll_tab_left_button.scroll_arrow_disabled {
+  color: #AAAAAA;
+  background-color: #CCCCCC;
+}
+
+.scroll_tabs_container .scroll_tab_right_button {
+  height: 42px;
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #CCCCCC;
+  border: 1px solid #999999;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.scroll_tabs_container .scroll_tab_right_button::before {
+  content: "\25B6";
+  line-height: 40px;
+  padding-left: 5px;
+}
+
+.scroll_tabs_container .scroll_tab_right_button.scroll_arrow_over {
+  background-color: #999999;
+}
+
+.scroll_tabs_container .scroll_tab_right_button.scroll_arrow_disabled{
+  color: #AAAAAA;
+  background-color: #CCCCCC;
+}
+
+.scroll_tabs_container div.scroll_tab_inner span.tab_selected {
+  background-color: #AAAAAA;
+}
+
+.scroll_tabs_container div.scroll_tab_inner span.tab_selected.scroll_tab_first {
+  background-color: #AAAAAA;
+}

@@ -1,0 +1,95 @@
+<html>
+<head>
+  <title>jQuery ScrollTabs :: Josh Reed</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+  <link rel="stylesheet" href="css/scrolltabs.css">
+  <link rel="stylesheet" href="examples/css/demo.css">
+</head>
+<body>
+
+
+  <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#">jQuery ScrollTabs</a>
+      <p class="navbar-text navbar-right">Awesome Scrolling for wide tab-interface applications</p>
+    </div>
+  </div>
+
+  <div class="colored_header">
+    <div class="container"</div>
+      <h1 style="border-bottom: 1px dotted #CCCCFF;">Too Many Tabs in Your Tabbed Interface? Scroll 'Em!</h1>
+      <h3>Customizable. Free. Dynamic.</h3>
+      <div>You can make it your own by using simple CSS</div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <h1>Examples</h1>
+    
+    <p>
+      Automatic adjusts to detect whether scrolling is needed. One of the greatest features for jQuery ScrollTabs is that you can have different right-and-left side styling depending on if scrolling is required. 
+      Here you can see that there are rounded corners for the right and left sides when it is not wide enough to scroll, however when scrolling there are right and left arrows accordingly.
+    </p>
+
+    <div id="tabs1">
+      <span>This is my tab</span>
+      <span>Another Tab</span>
+      <span>Big Tab</span>
+    </div>
+
+    <div id="tabs2">
+      <span>This is my tab</span>
+      <span>Another Tab</span>
+      <span>Big Tab</span>
+      <span>Another Tab</span>
+      <span>Another Tab</span>
+      <span>Another Tab</span>
+      <span>Another Tab</span>
+      <span>Another Tab</span>
+      <span>Another Tab</span>
+      <span>Another Tab</span>
+      <span>Another Tab</span>
+      <span>Another Tab</span>
+      <span>Another Tab</span>
+    </div>
+
+    <h2>Dynamic</h2>
+
+    <p>ScrollTabs automatically adjusts when you add more items. There's a simple Javascript API for adding and removing items.</p>
+
+    <div id="tabs3">
+      <span>First Item</span>
+    </div>
+    
+    <button type="button" class="btn btn-primary" onclick="javascript:tabs3.addTab('<span>Added Item</span>')">Add Item</button>
+  </div>
+
+  <div class="footer">
+      &copy; Copyright 2014 Josh Reed
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  
+  <script src="js/jquery.scrolltabs.js"></script>
+  <script src="js/jquery.mousewheel.js"></script>
+
+  <script type="text/javascript">
+    var tabs3 = null;
+    $(document).ready(function(){
+      $('#tabs1').scrollTabs();
+      $('#tabs2').scrollTabs();
+      tabs3 = $('#tabs3').scrollTabs();
+    });
+  </script>
+</body>
+</html>
