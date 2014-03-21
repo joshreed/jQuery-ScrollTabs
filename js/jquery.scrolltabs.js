@@ -265,8 +265,8 @@
             position = $('.scroll_tab_inner > span', context_obj).length - 2;
           } 
           
-          $('.scroll_tab_inner > span.scroll_tab_last').removeClass('scroll_tab_last');
-          $('.scroll_tab_inner > span.scroll_tab_first').removeClass('scroll_tab_first');
+          $('.scroll_tab_inner > span.scroll_tab_last', context_obj).removeClass('scroll_tab_last');
+          $('.scroll_tab_inner > span.scroll_tab_first', context_obj).removeClass('scroll_tab_first');
           backup = "";
           var count = 0;
           $('.scroll_tab_inner > span', context_obj).each(function(){
