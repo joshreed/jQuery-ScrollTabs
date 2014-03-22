@@ -1,0 +1,138 @@
+<html>
+<head>
+  <title>jQuery ScrollTabs :: Josh Reed</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="examples/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="examples/css/bootstrap-theme.min.css">
+
+  <link rel="stylesheet" href="css/scrolltabs.css">
+  <link rel="stylesheet" href="examples/css/demo.css">
+</head>
+<body>
+
+
+  <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">jQuery ScrollTabs</a>
+      <ul class="nav navbar-nav">
+        <li><a href="index.html#examples">Examples</a></li>
+        <li><a href="#">Documentation</a></li>
+      </ul>
+      <p class="navbar-text navbar-right">Setup Documentation</p>
+    </div>
+  </div>
+
+  <!--
+  <div class="colored_header">
+    <div class="container"</div>
+      <h1 style="border-bottom: 1px dotted #CCCCFF;">Too Many Tabs in Your Tabbed Interface? Scroll 'Em!</h1>
+      <h3>Customizable. Free. Dynamic.</h3>
+      <div>You can make it your own by using simple CSS</div>
+    </div>
+  </div>
+  -->
+  
+  <div class="container">
+    <a name="examples"></a>
+    <h1>Documentation</h1>
+
+    <h2>API</h2>
+
+    <p>The returned object will have the following methods.</p>
+
+    <pre>
+      var tabSet = $('#tab_set').scrollTabs();
+      tabSet.addTab('&lt;span&gt;Hi&lt;/span&gt;');</pre>
+    
+    <br />
+    
+    <p>
+      <strong><code>domObject</code></strong> - Access the DOM Object that this TabSet was created on.
+    </p>
+    
+    <br />
+    
+    <p>
+      <strong><code>addTab(html, position)</code></strong> - Add a tab to the ScrollTabs interface. 
+      The new tab is created from the HTML string that you pass to this method. Providing an HTML
+      string provides you with the full flexibility to augment your span tag fully to meet the needs
+      of your specific use-case. Optionally, you may pass a position value, which if not provided 
+      will default to placing the new tab as the last tab. The positions are zero-indexed, and the 
+      new tab will shift all items at and past the indicated position down one item. 
+    </p>
+
+    <pre>
+    // Place a new tab into the first position
+    tabSet.addTab('&lt;span&gt;Hi&lt;/span&gt;', 0);</pre>
+
+    <br />
+
+    <p>
+      <strong><code>removeTabs(jQuerySelector)</code></strong> - Removes all the items that are
+      returned by the jQuery selector string (scoped within this object).
+    </p>
+    
+    <pre>
+    // Remove the span with a specific ID
+    tabSet.removeTabs('#tab_id');
+
+    // Remove the first span, a couple of options
+    tabSet.removeTabs('span:eq(0)');
+    tabSet.removeTabs('span:nth-child(1)');</pre>
+    
+    <br />
+    
+    <p>
+      <strong><code>clearTabs()</code></strong> - Removes all the items in this ScrollTabs object.
+    </p>
+    
+    <br />
+    
+    <p>
+      <strong><code>destroy()</code></strong> - Destroys the ScrollTabs instance formatting, leaving
+      only the raw HTML contents. This is effectively the opposite of the ScrollTabs initialization.
+    </p>
+    
+    <br />
+    
+    <p>
+      <strong><code>hideTabs(jQuerySelector)</code></strong> - Hide tabs based on the jQuery Selector.
+      This is for situations where you may not want to completely remove a tab, but want to temporarily hide it.
+    </p>
+    
+    <br />
+    
+    <p>
+      <strong><code>showTabs(jQuerySelector)</code></strong> - Hide tabs based on the jQuery Selector.
+      This is for situations where you may not want to completely remove a tab, but want to temporarily hide it.
+    </p>
+  </div>
+
+
+  <div class="footer">
+      &copy; Copyright 2014 Josh Reed<br />
+      Software is released under the MIT License
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="examples/js/bootstrap.min.js"></script>
+  
+  <script src="js/jquery.scrolltabs.js"></script>
+  <script src="js/jquery.mousewheel.js"></script>
+
+  <script type="text/javascript">
+    var tabs3 = null;
+    $(document).ready(function(){
+      $('#tabs1').scrollTabs();
+      $('#tabs2').scrollTabs();
+      tabs3 = $('#tabs3').scrollTabs();
+    });
+  </script>
+</body>
+</html>

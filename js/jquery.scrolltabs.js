@@ -286,7 +286,14 @@
           this.refreshFirstLast();
         },
         removeTabs: function(jquery_selector_str){
+          $('.scroll_tab_left_finisher', context_obj).remove();
+          $('.scroll_tab_right_finisher', context_obj).remove();
+          
           $(jquery_selector_str, context_obj).remove();
+          
+          $('.scroll_tab_inner > span.scroll_tab_last', context_obj).removeClass('scroll_tab_last');
+          $('.scroll_tab_inner > span.scroll_tab_first', context_obj).removeClass('scroll_tab_first');
+
           this.refreshState();
         },
         destroy: function(){
@@ -338,12 +345,12 @@
             $('.scroll_tab_inner > span.scroll_tab_left_finisher', context_obj).hide();
           }
         },
-        hideTab: function(domObj){
-          $(domObj).css('display','none');
+        hideTabs: function(domObj){
+          $(domObj, context_obj).css('display','none');
           this.refreshFirstLast();
         },
-        showTab: function(domObj){
-          $(domObj).css({
+        showTabs: function(domObj){
+          $(domObj, context_obj).css({
             'display': '-moz-inline-stack',
             'display': 'inline-block',
             '*display': 'inline'
