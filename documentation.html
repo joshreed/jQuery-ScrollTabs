@@ -39,6 +39,36 @@
     <a name="examples"></a>
     <h1>Documentation</h1>
 
+    <h2>Available Options</h2>
+
+    <p><code>scroll_distance</code> - Pixel width distance for each scroll click. Default: 300 pixels.</p>
+    <br />
+    <p><code>scroll_duration</code> - Animation time for scrolling in milliseconds. Default: 300 milliseconds.</p>
+    <br />
+    <p><code>left_arrow_size</code> - Pixel width for the scroll button on the left side. Default: 26 pixels</p>
+    <br />
+    <p><code>right_arrow_size</code> - Pixel width for the scroll button on the right side. Default 26 pixels.</p>
+    <br />
+    <p><code>click_callback</code> - Callback function on click. Accpets the click event object as an argument. 
+    The default callback function will change the page to the href in the 'rel' attribute of the item's span tag.</p>
+    <br />
+
+    <h3>Usage</h3>
+
+    <pre>
+    $('#tabSet').scrollTabs({
+      scroll_distance: 350,
+      scroll_duration: 350,
+      left_arrow_size: 26,
+      right_arrow_size: 26,
+      click_callback: function(e){
+        var val = $(this).attr('rel');
+        if(val){
+          window.location.href = val;
+        }
+      }
+    });</pre>
+
     <h2>API</h2>
 
     <p>The returned object will have the following methods.</p>
