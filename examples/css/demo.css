@@ -21,6 +21,10 @@ div.colored_header {
   height: 176px;
 }
 
+div.jumbotron {
+  border: 1px solid #DDD;
+}
+
 @media screen and (max-width: 1200px){
   #header_image {
     background: transparent url(../images/header-940.png) no-repeat top left;
