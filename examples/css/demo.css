@@ -3,8 +3,6 @@ div.navbar {
 }
 
 div.colored_header {
-  padding-top: 15px;
-  padding-bottom: 25px;
   color: #FFFFFF;
   background: #0baed4; /* Old browsers */
   /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -16,6 +14,23 @@ div.colored_header {
   background: -ms-linear-gradient(-45deg, #0baed4 0%,#0d85a3 100%); /* IE10+ */
   background: linear-gradient(135deg, #0baed4 0%,#0d85a3 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0baed4', endColorstr='#0d85a3',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
+}
+
+#header_image {
+  background: transparent url(../images/header.png) no-repeat top left;
+  height: 176px;
+}
+
+@media screen and (max-width: 1200px){
+  #header_image {
+    background: transparent url(../images/header-940.png) no-repeat top left;
+  }
+}
+
+@media screen and (max-width: 1000px){
+  #header_image {
+    background: transparent url(../images/header-compressed.png) no-repeat top left;
+  }
 }
 
 div.footer {
