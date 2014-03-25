@@ -16,6 +16,19 @@ div.colored_header {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0baed4', endColorstr='#0d85a3',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
 }
 
+div.indented_text {
+  margin-left: 30px;
+}
+
+.section_title {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #999;
+  padding-bottom: 5px;
+  border-left: 5px solid #7ba4c7;
+  padding-left: 10px;
+}
+
 #header_image {
   background: transparent url(../images/header.png) no-repeat top left;
   height: 176px;

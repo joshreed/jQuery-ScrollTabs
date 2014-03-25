@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>jQuery ScrollTabs :: Josh Reed</title>
@@ -45,45 +46,121 @@
       </p>
     </div>
 
+    <hr />
+
     <a name="examples"></a>
     <h1>Examples</h1>
-    
-    <p>
-      Automatic adjusts to detect whether scrolling is needed. One of the greatest features for jQuery ScrollTabs is that you can have different right-and-left side styling depending on if scrolling is required. 
-      Here you can see that there are rounded corners for the right and left sides when it is not wide enough to scroll, however when scrolling there are right and left arrows accordingly.
-    </p>
 
-    <div id="tabs1">
-      <span>This is my tab</span>
-      <span>Another Tab</span>
-      <span>Big Tab</span>
+    <div class="indented_text">
+      <p>
+        Automatically adjusts to detect whether scrolling is needed, ideal for responsive interfaces. One of the greatest features for jQuery ScrollTabs is that you can have different right-and-left side styling depending on if scrolling is required. 
+        Here you can see that there are rounded corners for the right and left sides when it is not wide enough to scroll, however when scrolling there are right and left arrows accordingly.
+      </p>
+
+      <div id="tabs1" class="scroll_tabs_theme_light">
+        <span>This is my tab</span>
+        <span>Another Tab</span>
+        <span>Third Tab</span>
+      </div>
+
+      <div id="tabs2" class="scroll_tabs_theme_light">
+        <span>This is my tab</span>
+        <span>Another Tab 1</span>
+        <span>Another Tab 2</span>
+        <span>Another Tab 3</span>
+        <span>Another Tab 4</span>
+        <span>Another Tab 5</span>
+        <span>Another Tab 6</span>
+        <span>Another Tab 7</span>
+        <span>Another Tab 8</span>
+        <span>Another Tab 9</span>
+        <span>Another Tab 10</span>
+        <span>Another Tab 11</span>
+        <span>Another Tab 12</span>
+      </div>
     </div>
 
-    <div id="tabs2">
-      <span>This is my tab</span>
-      <span>Another Tab</span>
-      <span>Big Tab</span>
-      <span>Another Tab</span>
-      <span>Another Tab</span>
-      <span>Another Tab</span>
-      <span>Another Tab</span>
-      <span>Another Tab</span>
-      <span>Another Tab</span>
-      <span>Another Tab</span>
-      <span>Another Tab</span>
-      <span>Another Tab</span>
-      <span>Another Tab</span>
+    <h3 class="section_title">Dynamic</h3>
+
+    <div class="indented_text">
+      <p>ScrollTabs automatically adjusts when you add more items. There's a simple Javascript API for adding and removing items.</p>
+
+      <div id="tabs3" class="scroll_tabs_theme_light">
+        <span>First Item</span>
+      </div>
+      
+      <button type="button" class="btn btn-primary" onclick="javascript:tabs3.addTab('<span>Added Item</span>')">Add Item</button>
+
+      <br /><br />
+
+      <p><strong>HTML:</strong></p>
+      <pre>
+        &lt;div id=&quot;tabSet&quot; class=&quot;scroll_tabs_theme_light&quot;&gt;
+          &lt;span&gt;First Item&lt;/span&gt;
+        &lt;/div&gt;</pre>
+      
+      <p><strong>JavaScript:</strong></p>
+      <pre>
+        tabSet = $('#tabSet').scrollTabs();
+        tabSet.addTab('&lt;span&gt;Added Item&lt;/span&gt;');</pre>
+      
     </div>
 
-    <h2>Dynamic</h2>
+    <h3 class="section_title">Custom Styling</h3>
 
-    <p>ScrollTabs automatically adjusts when you add more items. There's a simple Javascript API for adding and removing items.</p>
+    <div class="indented_text">
+      <p>Basic initialization, without any theme or custom CSS applied.</p>
 
-    <div id="tabs3">
-      <span>First Item</span>
+      <div id="tabs4">
+        <span>First Tab</span>
+        <span>Another Tab 2</span>
+        <span>Another Tab 3</span>
+        <span>Another Tab 4</span>
+        <span>Another Tab 5</span>
+        <span>Another Tab 6</span>
+        <span>Another Tab 7</span>
+        <span>Another Tab 8</span>
+        <span>Another Tab 9</span>
+        <span>Another Tab 10</span>
+        <span>Another Tab 11</span>
+        <span>Another Tab 12</span>
+        <span>Another Tab 13</span>
+      </div>
+      
+      <button type="button" class="btn btn-primary" onclick="javascript:tabs4.removeTabs('span:eq(0)')">Remove First Item</button>
+
+      <br /><br />
+
+      <p>This is an example with the &quot;dark&quot; theme applied. To apply this theme, simply append the class <code>scroll_tabs_theme_dark</code> to the container
+      div element.</p>
+      
+      <div id="tabs5" class="scroll_tabs_theme_dark">
+        <span>First Tab</span>
+        <span>Another Tab 2</span>
+        <span>Another Tab 3</span>
+        <span>Another Tab 4</span>
+        <span>Another Tab 5</span>
+        <span>Another Tab 6</span>
+        <span>Another Tab 7</span>
+        <span>Another Tab 8</span>
+        <span>Another Tab 9</span>
+        <span>Another Tab 10</span>
+        <span>Another Tab 11</span>
+        <span>Another Tab 12</span>
+        <span>Another Tab 13</span>
+      </div>
+      
+      <button type="button" class="btn btn-primary" onclick="javascript:tabs5.removeTabs('span:eq(0)')">Remove First Item</button>
+      
+      <br /><br />
+
+      <p><strong>HTML:</strong></p>
+      <pre>
+        &lt;div id=&quot;tabSet&quot; class=&quot;scroll_tabs_theme_dark&quot;&gt;
+          &lt;span&gt;First Tab&lt;/span&gt;
+          &lt;!-- ... A Bunch of other Tabs ... --&gt;
+        &lt;/div&gt;</pre>
     </div>
-    
-    <button type="button" class="btn btn-primary" onclick="javascript:tabs3.addTab('<span>Added Item</span>')">Add Item</button>
   </div>
 
   <div class="footer">
@@ -103,10 +180,14 @@
 
   <script type="text/javascript">
     var tabs3 = null;
+    var tabs4 = null;
+    var tabs5 = null;
     $(document).ready(function(){
       $('#tabs1').scrollTabs();
       $('#tabs2').scrollTabs();
       tabs3 = $('#tabs3').scrollTabs();
+      tabs4 = $('#tabs4').scrollTabs();
+      tabs5 = $('#tabs5').scrollTabs();
     });
   </script>
 </body>

@@ -99,14 +99,14 @@
           $('.scroll_tab_right_finisher',_this).css('display','none');
           
           if($('.scroll_tab_inner', _this)[0].scrollWidth - panel_width == $('.scroll_tab_inner', _this).scrollLeft()){
-            $('.scroll_tab_right_button', _this).addClass('scroll_arrow_disabled');
+            $('.scroll_tab_right_button', _this).addClass('scroll_arrow_disabled').addClass('scroll_tab_right_button_disabled');
           } else {
-            $('.scroll_tab_right_button', _this).removeClass('scroll_arrow_disabled');
+            $('.scroll_tab_right_button', _this).removeClass('scroll_arrow_disabled').removeClass('scroll_tab_right_button_disabled');
           }
           if ($('.scroll_tab_inner', _this).scrollLeft() == 0) {
-            $('.scroll_tab_left_button', _this).addClass('scroll_arrow_disabled');
+            $('.scroll_tab_left_button', _this).addClass('scroll_arrow_disabled').addClass('scroll_tab_left_button_disabled');
           } else {
-            $('.scroll_tab_left_button', _this).removeClass('scroll_arrow_disabled');
+            $('.scroll_tab_left_button', _this).removeClass('scroll_arrow_disabled').removeClass('scroll_tab_left_button_disabled');
           }
         } else {
           $('.scroll_tab_right_button',_this).hide();
@@ -143,9 +143,9 @@
       }).bind("mouseup mouseleave", function(){
         clearInterval(press_and_hold_timeout);
       }).mouseover(function(){
-        $(this).addClass('scroll_arrow_over');
+        $(this).addClass('scroll_arrow_over').addClass('scroll_tab_right_button_over');
       }).mouseout(function(){
-        $(this).removeClass('scroll_arrow_over');
+        $(this).removeClass('scroll_arrow_over').removeClass('scroll_tab_right_button_over');
       });
       
       $('.scroll_tab_left_button', this).mousedown(function(e){
@@ -163,56 +163,56 @@
       }).bind("mouseup mouseleave", function(){
         clearInterval(press_and_hold_timeout);
       }).mouseover(function(){
-        $(this).addClass('scroll_arrow_over');
+        $(this).addClass('scroll_arrow_over').addClass('scroll_tab_left_button_over');
       }).mouseout(function(){
-        $(this).removeClass('scroll_arrow_over');
+        $(this).removeClass('scroll_arrow_over').removeClass('scroll_tab_left_button_over');
       });
       
       $('.scroll_tab_inner > span', this).mouseover(function(){
         $(this).addClass('scroll_tab_over');
         if($(this).hasClass('scroll_tab_left_finisher')){
-          $('.scroll_tab_inner > span.scroll_tab_first', _this).addClass('scroll_tab_over');
+          $('.scroll_tab_inner > span.scroll_tab_first', _this).addClass('scroll_tab_over').addClass('scroll_tab_first_over');
         }
         if($(this).hasClass('scroll_tab_right_finisher')){
-          $('.scroll_tab_inner > span.scroll_tab_last', _this).addClass('scroll_tab_over');
+          $('.scroll_tab_inner > span.scroll_tab_last', _this).addClass('scroll_tab_over').addClass('scroll_tab_last_over');
         }
         if($(this).hasClass('scroll_tab_first') || $('.scroll_tab_inner > span.scroll_tab_last', _this).hasClass('scroll_tab_first')){
-          $('.scroll_tab_inner > span.scroll_tab_left_finisher', _this).addClass('scroll_tab_over');
+          $('.scroll_tab_inner > span.scroll_tab_left_finisher', _this).addClass('scroll_tab_over').addClass('scroll_tab_left_finisher_over');
         }
         if($(this).hasClass('scroll_tab_last') || $('.scroll_tab_inner > span.scroll_tab_first', _this).hasClass('scroll_tab_last')){
-          $('.scroll_tab_inner > span.scroll_tab_right_finisher', _this).addClass('scroll_tab_over');
+          $('.scroll_tab_inner > span.scroll_tab_right_finisher', _this).addClass('scroll_tab_over').addClass('scroll_tab_right_finisher_over');
         }
       }).mouseout(function(){
         $(this).removeClass('scroll_tab_over');
         if($(this).hasClass('scroll_tab_left_finisher')){
-          $('.scroll_tab_inner > span.scroll_tab_first', _this).removeClass('scroll_tab_over');
+          $('.scroll_tab_inner > span.scroll_tab_first', _this).removeClass('scroll_tab_over').removeClass('scroll_tab_first_over');
         }
         if($(this).hasClass('scroll_tab_right_finisher')){
-          $('.scroll_tab_inner > span.scroll_tab_last', _this).removeClass('scroll_tab_over');
+          $('.scroll_tab_inner > span.scroll_tab_last', _this).removeClass('scroll_tab_over').removeClass('scroll_tab_last_over');
         }
         if($(this).hasClass('scroll_tab_first') || $('.scroll_tab_inner > span.scroll_tab_last', _this).hasClass('scroll_tab_first')){
-          $('.scroll_tab_inner > span.scroll_tab_left_finisher', _this).removeClass('scroll_tab_over');
+          $('.scroll_tab_inner > span.scroll_tab_left_finisher', _this).removeClass('scroll_tab_over').removeClass('scroll_tab_left_finisher_over');
         }
         if($(this).hasClass('scroll_tab_last') || $('.scroll_tab_inner > span.scroll_tab_first', _this).hasClass('scroll_tab_last')){
-          $('.scroll_tab_inner > span.scroll_tab_right_finisher', _this).removeClass('scroll_tab_over');
+          $('.scroll_tab_inner > span.scroll_tab_right_finisher', _this).removeClass('scroll_tab_over').removeClass('scroll_tab_right_finisher_over');
         }
       }).click(function(e){
         e.stopPropagation();
-        $('.tab_selected',_this).removeClass('tab_selected');
+        $('.tab_selected',_this).removeClass('tab_selected scroll_tab_first_selected scroll_tab_last_selected scroll_tab_left_finisher_selected scroll_tab_right_finisher_selected');
         $(this).addClass('tab_selected');
         
         var context_obj = this;
         if($(this).hasClass('scroll_tab_left_finisher')){
-          context_obj = $('.scroll_tab_inner > span.scroll_tab_first', _this).addClass('tab_selected');
+          context_obj = $('.scroll_tab_inner > span.scroll_tab_first', _this).addClass('tab_selected').addClass('scroll_tab_first_selected');
         }
         if($(this).hasClass('scroll_tab_right_finisher')){
-          context_obj = $('.scroll_tab_inner > span.scroll_tab_last', _this).addClass('tab_selected');
+          context_obj = $('.scroll_tab_inner > span.scroll_tab_last', _this).addClass('tab_selected').addClass('scroll_tab_last_selected');
         }
         if($(this).hasClass('scroll_tab_first') || $('.scroll_tab_inner > span.scroll_tab_last', _this).hasClass('scroll_tab_first')){
-          $('.scroll_tab_inner > span.scroll_tab_left_finisher', _this).addClass('tab_selected');
+          $('.scroll_tab_inner > span.scroll_tab_left_finisher', _this).addClass('tab_selected').addClass('scroll_tab_left_finisher_selected');
         }
         if($(this).hasClass('scroll_tab_last') || $('.scroll_tab_inner > span.scroll_tab_first', _this).hasClass('scroll_tab_last')){
-          $('.scroll_tab_inner > span.scroll_tab_right_finisher', _this).addClass('tab_selected');
+          $('.scroll_tab_inner > span.scroll_tab_right_finisher', _this).addClass('tab_selected').addClass('scroll_tab_left_finisher_selected');
         }
         
         // "Slide" it into view if not fully visible.
@@ -223,9 +223,9 @@
       
       // Check to set the edges as selected if needed
       if($('.scroll_tab_inner > span.scroll_tab_first', _this).hasClass('tab_selected'))
-        $('.scroll_tab_inner > span.scroll_tab_left_finisher', _this).addClass('tab_selected');
+        $('.scroll_tab_inner > span.scroll_tab_left_finisher', _this).addClass('tab_selected').addClass('scroll_tab_left_finisher_selected');
       if($('.scroll_tab_inner > span.scroll_tab_last', _this).hasClass('tab_selected'))
-        $('.scroll_tab_inner > span.scroll_tab_right_finisher', _this).addClass('tab_selected');
+        $('.scroll_tab_inner > span.scroll_tab_right_finisher', _this).addClass('tab_selected').addClass('scroll_tab_right_finisher_selected');
     };
     
     var scroll_selected_into_view = function(state){
@@ -322,9 +322,9 @@
           old_first_item.removeClass('scroll_tab_first');
           
           if(old_last_item.hasClass('tab_selected'))
-            $('.scroll_tab_inner > span.scroll_tab_right_finisher', context_obj).removeClass('tab_selected');
+            $('.scroll_tab_inner > span.scroll_tab_right_finisher', context_obj).removeClass('tab_selected scroll_tab_right_finisher_selected');
           if(old_first_item.hasClass('tab_selected'))
-            $('.scroll_tab_inner > span.scroll_tab_left_finisher', context_obj).removeClass('tab_selected');
+            $('.scroll_tab_inner > span.scroll_tab_left_finisher', context_obj).removeClass('tab_selected scroll_tab_left_finisher_selected');
           
           if($('.scroll_tab_inner > span:not(.scroll_tab_right_finisher):not(.scroll_tab_left_finisher):visible', context_obj).size() > 0){
             $('.scroll_tab_inner > span.scroll_tab_right_finisher', context_obj).show();
@@ -337,9 +337,9 @@
             new_first_item.addClass('scroll_tab_first');
             
             if(new_last_item.hasClass('tab_selected'))
-              $('.scroll_tab_inner > span.scroll_tab_right_finisher', context_obj).addClass('tab_selected');
+              $('.scroll_tab_inner > span.scroll_tab_right_finisher', context_obj).addClass('tab_selected').addClass('scroll_tab_right_finisher_selected');
             if(new_first_item.hasClass('tab_selected'))
-              $('.scroll_tab_inner > span.scroll_tab_left_finisher', context_obj).addClass('tab_selected');
+              $('.scroll_tab_inner > span.scroll_tab_left_finisher', context_obj).addClass('tab_selected').addClass('scroll_tab_right_finisher_selected');
           } else {
             $('.scroll_tab_inner > span.scroll_tab_right_finisher', context_obj).hide();
             $('.scroll_tab_inner > span.scroll_tab_left_finisher', context_obj).hide();
