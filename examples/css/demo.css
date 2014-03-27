@@ -67,3 +67,129 @@ div.footer {
   background: linear-gradient(135deg, #45484d 0%,#000000 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
 }
+
+/******** CUSTOM SCROLL TABS ***********/
+
+#custom_style_container1 {
+  position: relative;
+  left: 0px;
+  right: 0px;
+  background: url(../images/toolbar-bg.jpg) repeat-x;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+#custom_style_container1 .style1 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  background: url(../images/toolbar-bg.jpg) repeat-x;
+  text-align: left;
+}
+
+/****** PLUGIN-SPECIFIED CLASS NAMES (though it's our proprietary plugin) ********/
+.style1 .scroll_tab_left_button::before {
+  content: "";
+  padding: 0px;
+}
+
+.style1 .scroll_tab_right_button::before {
+  content: "";
+  padding: 0px;
+}
+
+.style1 div.scroll_tab_inner {
+  height: 40px;
+  background: url(../images/toolbar-bg.jpg) repeat-x;
+}
+
+.style1 div.scroll_tab_inner span {
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 40px;
+  font-size: 14px;
+  background: transparent url(../images/scroll_tab_bg.jpg) no-repeat -25px -40px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.style1 div.scroll_tab_inner span.scroll_tab_first {
+  background: transparent url(../images/scroll_tab_bg.jpg) no-repeat -40px -40px;
+}
+
+.style1 div.scroll_tab_inner span.scroll_tab_over {
+  background: transparent url(../images/scroll_tab_bg.jpg) no-repeat -25px 0px !important;
+}
+
+.style1 div.scroll_tab_inner span.scroll_tab_first.scroll_tab_over {
+  background: transparent url(../images/scroll_tab_bg.jpg) no-repeat -40px 0px !important;
+}
+
+.style1 div.scroll_tab_inner span.scroll_tab_first.scroll_tab_over {
+  background: transparent url(../images/scroll_tab_bg.jpg) no-repeat -40px 0px !important;
+}
+
+.style1 div.scroll_tab_inner span.scroll_tab_left_finisher {
+  padding: 0px;
+  width: 10px;
+  background: transparent url(../images/scroll_tab_bg.jpg) no-repeat 0px -160px;
+}
+
+.style1 div.scroll_tab_inner span.scroll_tab_left_finisher.scroll_tab_over {
+  background-position: 0px -120px !important;
+}
+.style1 div.scroll_tab_inner span.scroll_tab_left_finisher.tab_selected {
+  background-position: 0px -200px;
+}
+
+.style1 div.scroll_tab_inner span.scroll_tab_right_finisher {
+  padding: 0px;
+  width: 10px;
+  background: transparent url(../images/scroll_tab_bg.jpg) no-repeat right -160px;
+}
+.style1 div.scroll_tab_inner span.scroll_tab_right_finisher.scroll_tab_over {
+  background-position: right -120px !important;
+}
+.style1 div.scroll_tab_inner span.scroll_tab_right_finisher.tab_selected {
+  background-position: right -200px;
+}
+
+
+.style1 .scroll_tab_left_button {
+  height: 40px;
+  background: transparent url(../images/scroll_tab_bg.jpg) no-repeat 0px -40px;
+}
+
+.style1 .scroll_tab_left_button.scroll_arrow_over {
+  background: transparent url(../images/scroll_tab_bg.jpg) no-repeat 0px 0px;
+}
+
+.style1 .scroll_tab_left_button.scroll_arrow_over {
+  background: transparent url(../images/scroll_tab_bg.jpg) no-repeat 0px 0px;
+}
+
+.style1 .scroll_tab_left_button.scroll_arrow_disabled {
+  background: transparent url(../images/scroll_tab_bg.jpg) no-repeat 0px -80px;
+}
+
+.style1 .scroll_tab_right_button {
+  height: 40px;
+  background: transparent url(../images/scroll_tab_bg.jpg) no-repeat -474px -40px;
+}
+
+.style1 .scroll_tab_right_button.scroll_arrow_over {
+  background: transparent url(../images/scroll_tab_bg.jpg) no-repeat -474px 0px;
+}
+
+.style1 .scroll_tab_right_button.scroll_arrow_disabled{
+  background: transparent url(../images/scroll_tab_bg.jpg) no-repeat -474px -80px;
+}
+
+.style1 div.scroll_tab_inner span.tab_selected {
+  background: transparent url(../images/scroll_tab_bg.jpg) no-repeat -25px -80px;
+}
+
+.style1 div.scroll_tab_inner span.tab_selected.scroll_tab_first {
+  background-position: -40px -200px;
+}

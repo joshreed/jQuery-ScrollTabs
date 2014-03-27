@@ -160,6 +160,32 @@
           &lt;span&gt;First Tab&lt;/span&gt;
           &lt;!-- ... A Bunch of other Tabs ... --&gt;
         &lt;/div&gt;</pre>
+
+      <h3>Custom Background Images</h3>
+
+      <p>Beyond using simple CSS to style your tabbed interface, you could also make use of background images. This can allow you to 
+      provide more unique styling without sacrificing browser compatibility (in some cases). Below is an example of a custom style for
+      a dark-gray themed toolbar. Use the button to remove some tabs in order to see how it appears without the scrolling arrows.<p>
+      
+      <div id="custom_style_container1">
+        <div id="tabs6" class="style1">
+          <span>First Tab</span>
+          <span>Another Tab 2</span>
+          <span>Another Tab 3</span>
+          <span class="tab_selected">Another Tab 4</span>
+          <span>Another Tab 5</span>
+          <span>Another Tab 6</span>
+          <span>Another Tab 7</span>
+          <span>Another Tab 8</span>
+          <span>Another Tab 9</span>
+          <span>Another Tab 10</span>
+          <span>Another Tab 11</span>
+          <span>Another Tab 12</span>
+          <span>Another Tab 13</span>
+        </div>
+      </div>
+      
+      <button type="button" class="btn btn-primary" onclick="javascript:tabs6.removeTabs('span:eq(0)')">Remove First Item</button>
     </div>
   </div>
 
@@ -182,12 +208,14 @@
     var tabs3 = null;
     var tabs4 = null;
     var tabs5 = null;
+    var tabs6 = null;
     $(document).ready(function(){
       $('#tabs1').scrollTabs();
       $('#tabs2').scrollTabs();
       tabs3 = $('#tabs3').scrollTabs();
       tabs4 = $('#tabs4').scrollTabs();
       tabs5 = $('#tabs5').scrollTabs();
+      tabs6 = $('#tabs6').scrollTabs();
     });
   </script>
 </body>
