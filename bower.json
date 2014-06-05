@@ -1,0 +1,27 @@
+{
+  "name": "jQuery-ScrollTabs",
+  "version": "1.0.1",
+  "homepage": "http://joshreed.github.io/jQuery-ScrollTabs/",
+  "authors": [
+    "Josh Reed"
+  ],
+  "description": "JQuery highly configurable plugin to handle scrolling tabs horizontally when not enough space is available.",
+  "main": [
+    "./js/jquery.scrolltabs.js", 
+    "./js/jquery.mousewheel.js", 
+    "./css/scrolltabs.css"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "scroll",
+    "tabs",
+    "tabbed",
+    "horizontal"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.7.1"
+  },
+  "license": "MIT"
+}
