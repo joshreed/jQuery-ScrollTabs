@@ -26,7 +26,7 @@ At it's most basic:
 $('#tabSet').scrollTabs();
 ```
 
-And to show the options availble:
+And to show the options available:
 
 ```
  $('#tabSet').scrollTabs({
@@ -51,3 +51,7 @@ Documentation
 For more information or detailed usage instructions, please refer to the link below.
 
 http://joshreed.github.io/jQuery-ScrollTabs/documentation.html
+
+Also, the Examples provide a guide of how to structure your HTML, and some key JavaScript API calls, should you be interested in dynamically changing the tab set's contents.
+
+http://joshreed.github.io/jQuery-ScrollTabs/index.html#examples
