@@ -139,6 +139,36 @@
     <p>
       <strong><code>showTabs(jQuerySelector)</code></strong> - Shows hidden tabs based on the jQuery Selector.
     </p>
+    
+    <h2>CSS Selectors</h2>
+
+    <p>You can override the basic styling CSS to make the look of the tabs as unique as you'd like!</p>
+
+    <p><strong><code>.scroll_tabs_container</code></strong> - Wrapper for the interface. This is the DOM object you called <code>.scrollTabs()</code> on.</p>
+    
+    <br />
+    
+    <p><strong><code>div.scroll_tab_inner</code></strong> - This is a wrapper for the individual tabs themselves. Does not include the left/right scrolling buttons.</p>
+
+    <br />
+
+    <p><strong><code>div.scroll_tab_inner span</code></strong> - The individual items that will be scrolled. Additional classes for various states will be applied to these DOM objects, such as <code>.scroll_tab_first</code> (First Item), <code>.scroll_tab_last</code> (Last Item), <code>.scroll_tab_over</code> (Hover), and <code>.tab_selected</code> (Selected/Depressed).</p>
+    
+    <br />
+    
+    <p><strong><code>div.scroll_tab_inner span.scroll_tab_left_finisher</code></strong> - A DOM element inserted so that you can (should you want) add some extra styling to the left of the tabs, when the scroll buttons are hidden. Make the padding and width of the element <code>0</code> should you not need it.</p>
+    
+    <br />
+    
+    <p><strong><code>div.scroll_tab_inner span.scroll_tab_right_finisher</code></strong> - A DOM element inserted so that you can (should you want) add some extra styling to the right of the tabs, when the scroll buttons are hidden. Make the padding and width of the element <code>0</code> should you not need it.</p>
+    
+    <br />
+    
+    <p><strong><code>.scroll_tab_left_button</code></strong> - The DOM element for the left button (that scrolls the grouping left). Additional selectors available to change the styling under the specified circumstances: <code>.scroll_tab_left_button_over</code> (Hover) and <code>.scroll_tab_left_button_disabled</code> (Not Clickable--already scrolled all the way in this direction).</p>
+    
+    <br />
+    
+    <p><strong><code>.scroll_tab_right_button</code></strong> - The DOM element for the right button (that scrolls the grouping right). Additional selectors available to change the styling under the specified circumstances: <code>.scroll_tab_right_button_over</code> (Hover) and <code>.scroll_tab_right_button_disabled</code> (Not Clickable--already scrolled all the way in this direction).</p>
   </div>
 
 

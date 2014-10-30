@@ -38,6 +38,27 @@ div.jumbotron {
   border: 1px solid #DDD;
 }
 
+span.pre_comment {
+  color: #9999AA;
+  font-weight: bold;
+}
+
+span.pre_class {
+  color: #7c2984;
+}
+
+span.pre_tag {
+  color: #017b95;
+}
+
+span.pre_before {
+  color: #e19215;
+}
+
+span.pre_attribute {
+  color: #28ab1a;
+}
+
 @media screen and (max-width: 1200px){
   #header_image {
     background: transparent url(../images/header-940.png) no-repeat top left;

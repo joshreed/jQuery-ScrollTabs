@@ -186,6 +186,133 @@
       </div>
       
       <button type="button" class="btn btn-primary" onclick="javascript:tabs6.removeTabs('span:eq(0)')">Remove First Item</button>
+
+      <br />
+      <br />
+      <p>Here is the Custom CSS that provides for the above example:</p>
+
+      <pre>
+        <span class='pre_comment'>/****** NOTE: .style1 is the class of our DOM object we've applied scrollTabs() to *******/</span>
+
+        <span class='pre_comment'>/* Set the content of the arrows to nothing, we will use a background image of our own. */</span>
+        <span class='pre_class'>.style1</span> <span class='pre_class'>.scroll_tab_left_button</span><span class='pre_before'>::before</span> {
+          <span class='pre_attribute'>content</span>: "";
+          <span class='pre_attribute'>padding</span>: 0px;
+        }
+
+        <span class='pre_class'>.style1</span> <span class='pre_class'>.scroll_tab_right_button</span><span class='pre_before'>::before</span> {
+          <span class='pre_attribute'>content</span>: "";
+          <span class='pre_attribute'>padding</span>: 0px;
+        }
+
+        <span class='pre_comment'>/* Set up our background image (i.e. toolbar for example) behind the tab-set */</span>
+        <span class='pre_class'>.style1</span> <span class='pre_tag'>div</span><span class='pre_class'>.scroll_tab_inner</span> {
+          <span class='pre_attribute'>height</span>: 40px;
+          <span class='pre_attribute'>background</span>: url(../images/toolbar-bg.jpg) repeat-x;
+        }
+
+        <span class='pre_comment'>/* Setup the appearance of each individual TAB */</span>
+        <span class='pre_class'>.style1</span> <span class='pre_tag'>div</span><span class='pre_class'>.scroll_tab_inner</span> <span class='pre_tag'>span</span> {
+          <span class='pre_attribute'>padding-left</span>: 20px;
+          <span class='pre_attribute'>padding-right</span>: 20px;
+          <span class='pre_attribute'>line-height</span>: 40px;
+          <span class='pre_attribute'>font-size</span>: 14px;
+          <span class='pre_attribute'>background</span>: transparent url(../images/scroll_tab_bg.jpg) no-repeat -25px -40px;
+          <span class='pre_attribute'>color</span>: #FFFFFF;
+          <span class='pre_attribute'>cursor</span>: pointer;
+        }
+
+        <span class='pre_comment'>/* Style the FIRST tab differently from the rest, inherits from above */</span>
+        <span class='pre_class'>.style1</span> <span class='pre_tag'>div</span><span class='pre_class'>.scroll_tab_inner</span> <span class='pre_tag'>span</span><span class='pre_class'>.scroll_tab_first</span> {
+          <span class='pre_attribute'>background</span>: transparent url(../images/scroll_tab_bg.jpg) no-repeat -40px -40px;
+        }
+
+        <span class='pre_comment'>/* Style the hover state for each tab */</span>
+        <span class='pre_class'>.style1</span> <span class='pre_tag'>div</span><span class='pre_class'>.scroll_tab_inner</span> <span class='pre_tag'>span</span><span class='pre_class'>.scroll_tab_over</span> {
+          <span class='pre_attribute'>background</span>: transparent url(../images/scroll_tab_bg.jpg) no-repeat -25px 0px !important;
+        }
+
+        <span class='pre_comment'>/* Style the hover state for the first tab (Using MULTI-CLASS selectors may not work right in older browsers) */</span>
+        <span class='pre_class'>.style1</span> <span class='pre_tag'>div</span><span class='pre_class'>.scroll_tab_inner</span> <span class='pre_tag'>span</span><span class='pre_class'>.scroll_tab_first</span><span class='pre_class'>.scroll_tab_over</span> {
+          <span class='pre_attribute'>background</span>: transparent url(../images/scroll_tab_bg.jpg) no-repeat -40px 0px !important;
+        }
+
+        <span class='pre_comment'>/* Style the left of the tab set if the arrows are hidden (the are is wide enough to show ALL the tabs */</span>
+        <span class='pre_class'>.style1</span> <span class='pre_tag'>div</span><span class='pre_class'>.scroll_tab_inner</span> <span class='pre_tag'>span</span><span class='pre_class'>.scroll_tab_left_finisher</span> {
+          <span class='pre_attribute'>padding</span>: 0px;
+          <span class='pre_attribute'>width</span>: 10px;
+          <span class='pre_attribute'>background</span>: transparent url(../images/scroll_tab_bg.jpg) no-repeat 0px -160px;
+        }
+
+        <span class='pre_comment'>/* AND HOVER STATE */</span>
+        <span class='pre_class'>.style1</span> <span class='pre_tag'>div</span><span class='pre_class'>.scroll_tab_inner</span> <span class='pre_tag'>span</span><span class='pre_class'>.scroll_tab_left_finisher</span><span class='pre_class'>.scroll_tab_over</span> {
+          <span class='pre_attribute'>background-position</span>: 0px -120px !important;
+        }
+
+        <span class='pre_comment'>/* AND SELECTED STATE */</span>
+        <span class='pre_class'>.style1</span> <span class='pre_tag'>div</span><span class='pre_class'>.scroll_tab_inner</span> <span class='pre_tag'>span</span><span class='pre_class'>.scroll_tab_left_finisher</span><span class='pre_class'>.tab_selected</span> {
+          <span class='pre_attribute'>background-position</span>: 0px -200px;
+        }
+
+        <span class='pre_comment'>/* Style the right of the tab set if the arrows are hidden (the are is wide enough to show ALL the tabs */</span>
+        <span class='pre_class'>.style1</span> <span class='pre_tag'>div</span><span class='pre_class'>.scroll_tab_inner</span> <span class='pre_tag'>span</span><span class='pre_class'>.scroll_tab_right_finisher</span> {
+          <span class='pre_attribute'>padding</span>: 0px;
+          <span class='pre_attribute'>width</span>: 10px;
+          <span class='pre_attribute'>background</span>: transparent url(../images/scroll_tab_bg.jpg) no-repeat right -160px;
+        }
+
+        <span class='pre_comment'>/* AND HOVER STATE */</span>
+        <span class='pre_class'>.style1</span><span class='pre_tag'>div</span><span class='pre_class'>.scroll_tab_inner</span> <span class='pre_tag'>span</span><span class='pre_class'>.scroll_tab_right_finisher</span><span class='pre_class'>.scroll_tab_over</span> {
+          <span class='pre_attribute'>background-position</span>: right -120px !important;
+        }
+        
+        <span class='pre_comment'>/* AND SELECTED STATE */</span>
+        <span class='pre_class'>.style1</span><span class='pre_tag'>div</span><span class='pre_class'>.scroll_tab_inner</span> <span class='pre_tag'>span</span><span class='pre_class'>.scroll_tab_right_finisher</span><span class='pre_class'>.tab_selected</span> {
+          <span class='pre_attribute'>background-position</span>: right -200px;
+        }
+
+        <span class='pre_comment'>/* Style left scrolling button */</span>
+        <span class='pre_class'>.style1</span> <span class='pre_class'>.scroll_tab_left_button</span> {
+          <span class='pre_attribute'>height</span>: 40px;
+          <span class='pre_attribute'>background</span>: transparent url(../images/scroll_tab_bg.jpg) no-repeat 0px -40px;
+        }
+
+        <span class='pre_comment'>/* Style left scrolling button HOVER */</span>
+        <span class='pre_class'>.style1</span> <span class='pre_class'>.scroll_tab_left_button</span><span class='pre_class'>.scroll_arrow_over</span> {
+          <span class='pre_attribute'>background</span>: transparent url(../images/scroll_tab_bg.jpg) no-repeat 0px 0px;
+        }
+
+        <span class='pre_comment'>/* Style left scrolling button DISABLED */</span>
+        <span class='pre_class'>.style1</span> <span class='pre_class'>.scroll_tab_left_button</span><span class='pre_class'>.scroll_arrow_disabled</span> {
+          <span class='pre_attribute'>background</span>: transparent url(../images/scroll_tab_bg.jpg) no-repeat 0px -80px;
+        }
+
+        <span class='pre_comment'>/* Style right scrolling button */</span>
+        <span class='pre_class'>.style1</span> <span class='pre_class'>.scroll_tab_right_button</span> {
+          <span class='pre_attribute'>height</span>: 40px;
+          <span class='pre_attribute'>background</span>: transparent url(../images/scroll_tab_bg.jpg) no-repeat -474px -40px;
+        }
+
+        <span class='pre_comment'>/* Style right scrolling button HOVER */</span>
+        <span class='pre_class'>.style1</span> <span class='pre_class'>.scroll_tab_right_button</span><span class='pre_class'>.scroll_arrow_over</span> {
+          <span class='pre_attribute'>background</span>: transparent url(../images/scroll_tab_bg.jpg) no-repeat -474px 0px;
+        }
+
+        <span class='pre_comment'>/* Style right scrolling button DISABLED */</span>
+        <span class='pre_class'>.style1</span> <span class='pre_class'>.scroll_tab_right_button</span><span class='pre_class'>.scroll_arrow_disabled</span>{
+          <span class='pre_attribute'>background</span>: transparent url(../images/scroll_tab_bg.jpg) no-repeat -474px -80px;
+        }
+
+        <span class='pre_comment'>/* Style SELECTED (depressed) tab */</span>
+        <span class='pre_class'>.style1</span> <span class='pre_tag'>div</span><span class='pre_class'>.scroll_tab_inner</span> <span class='pre_tag'>span</span><span class='pre_class'>.tab_selected</span> {
+          <span class='pre_attribute'>background</span>: transparent url(../images/scroll_tab_bg.jpg) no-repeat -25px -80px;
+        }
+
+        <span class='pre_comment'>/* Style SELECTED (depressed) if it's the FIRST tab */</span>
+        <span class='pre_class'>.style1</span> <span class='pre_tag'>div</span><span class='pre_class'>.scroll_tab_inner</span> <span class='pre_tag'>span</span><span class='pre_class'>.tab_selected</span><span class='pre_class'>.scroll_tab_first</span> {
+          <span class='pre_attribute'>background-position</span>: -40px -200px;
+        }
+      </pre>
     </div>
   </div>
 
