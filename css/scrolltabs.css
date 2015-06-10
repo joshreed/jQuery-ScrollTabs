@@ -9,11 +9,15 @@
   margin-bottom: 10px;
 }
 
+ul.scroll_tabs_container {
+  list-style: none;
+}
+
 .scroll_tabs_container div.scroll_tab_inner {
   height: 40px;
 }
 
-.scroll_tabs_container div.scroll_tab_inner span {
+.scroll_tabs_container div.scroll_tab_inner span, .scroll_tabs_container div.scroll_tab_inner li {
   padding-left: 20px;
   padding-right: 20px;
   line-height: 40px;
@@ -21,6 +25,13 @@
   background-color: #CCCCCC;
   color: #333333;
   cursor: pointer;
+}
+
+.scroll_tabs_container div.scroll_tab_inner li {
+  display: -moz-inline-stack;
+  display: inline-block;
+  *display: inline;
+  list-style-type: none;
 }
 
 .scroll_tabs_container div.scroll_tab_inner span.scroll_tab_left_finisher {
@@ -94,7 +105,7 @@
   height: 42px;
 }
 
-.scroll_tabs_theme_light div.scroll_tab_inner span {
+.scroll_tabs_theme_light div.scroll_tab_inner span, .scroll_tabs_theme_light div.scroll_tab_inner li {
   padding-left: 20px;
   padding-right: 20px;
   line-height: 40px;
@@ -107,7 +118,7 @@
   cursor: pointer;
 }
 
-.scroll_tabs_theme_light div.scroll_tab_inner span.scroll_tab_first {
+.scroll_tabs_theme_light div.scroll_tab_inner span.scroll_tab_first, .scroll_tabs_theme_light div.scroll_tab_inner li.scroll_tab_first {
   border-left: 0px;
 }
 
@@ -137,7 +148,7 @@
   border-right: 1px solid #999999;
 }
 
-.scroll_tabs_theme_light div.scroll_tab_inner span.scroll_tab_over {
+.scroll_tabs_theme_light div.scroll_tab_inner span.scroll_tab_over, .scroll_tabs_theme_light div.scroll_tab_inner li.scroll_tab_over {
   background-color: #999999;
 }
 
@@ -228,7 +239,7 @@
   background-color: #CCCCCC;
 }
 
-.scroll_tabs_theme_light div.scroll_tab_inner span.tab_selected {
+.scroll_tabs_theme_light div.scroll_tab_inner span.tab_selected, .scroll_tabs_theme_light div.scroll_tab_inner li.tab_selected {
   background-color: #AAAAAA;
 }
 
@@ -245,7 +256,7 @@
   height: 42px;
 }
 
-.scroll_tabs_theme_dark div.scroll_tab_inner span {
+.scroll_tabs_theme_dark div.scroll_tab_inner span, .scroll_tabs_theme_dark div.scroll_tab_inner li {
   padding-left: 20px;
   padding-right: 20px;
   line-height: 40px;
@@ -258,7 +269,7 @@
   cursor: pointer;
 }
 
-.scroll_tabs_theme_dark div.scroll_tab_inner span.scroll_tab_first {
+.scroll_tabs_theme_dark div.scroll_tab_inner span.scroll_tab_first, .scroll_tabs_theme_dark div.scroll_tab_inner li.scroll_tab_first {
   border-left: 0px;
 }
 
@@ -286,7 +297,7 @@
   border-right: 1px solid #222222;
 }
 
-.scroll_tabs_theme_dark div.scroll_tab_inner span.scroll_tab_over {
+.scroll_tabs_theme_dark div.scroll_tab_inner span.scroll_tab_over, .scroll_tabs_theme_dark div.scroll_tab_inner li.scroll_tab_over {
   background-color: #555555;
 }
 
@@ -358,6 +369,6 @@
   background-color: #333333;
 }
 
-.scroll_tabs_theme_dark div.scroll_tab_inner span.tab_selected {
+.scroll_tabs_theme_dark div.scroll_tab_inner span.tab_selected, .scroll_tabs_theme_dark div.scroll_tab_inner li.tab_selected {
   background-color: #666666;
 }

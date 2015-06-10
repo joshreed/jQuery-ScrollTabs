@@ -9,23 +9,38 @@
  *  IE6 problems, it does not properly apply scrolling and therefore is always the 'full width.' Additionally, the multiple-class CSS styling does not work
  *  properly in IE6. We can work around this in the future by apply distinct class stylings that represent all the combinations. 
  *
- * Version:   1.0 
+ * Version:   2.0 
  * Author:    Josh Reed
  */
 (function($) {
   $.fn.scrollTabs = function(opts){
     var initialize = function(state){
       opts = $.extend({}, $.fn.scrollTabs.defaultOptions, opts);
+
+      if($(this).prop('tagName').toLowerCase() === 'ul'){
+        this.itemTag = 'li';
+      } else {
+        this.itemTag = 'span';
+      }
       
       $(this).addClass('scroll_tabs_container');
       if($(this).css('position') === null || $(this).css('position') === 'static'){
         $(this).css('position','relative');
       }
       
-      $('span', this).last().addClass('scroll_tab_last');
-      $('span', this).first().addClass('scroll_tab_first');
+      $(this.itemTag, this).last().addClass('scroll_tab_last');
+      $(this.itemTag, this).first().addClass('scroll_tab_first');
       
       $(this).html("<div class='scroll_tab_left_button'></div><div class='scroll_tab_inner'><span class='scroll_tab_left_finisher'>&nbsp;</span>"+$(this).html()+"<span class='scroll_tab_right_finisher'>&nbsp;</span></div><div class='scroll_tab_right_button'></div>");
+      
+      $('.scroll_tab_inner > span.scroll_tab_left_finisher', this).css({
+        'display': 'none'
+      });
+      
+      $('.scroll_tab_inner > span.scroll_tab_right_finisher', this).css({
+        'display': 'none'
+      });
+      
       
       var _this = this;
       
@@ -40,11 +55,19 @@
         'top': '0px',
         'left': opts.left_arrow_size + 'px',
         'right': opts.right_arrow_size + 'px'
-      }).mousewheel(function(event, delta){
-        this.scrollLeft -= (delta * 30);
-        state.scrollPos = this.scrollLeft;
-        event.preventDefault();
       });
+
+      // If mousewheel function not present, don't utilize it
+      if($.isFunction($.fn.mousewheel)){
+        $('.scroll_tab_inner', this).mousewheel(function(event, delta){
+          // Only do mousewheel scrolling if scrolling is necessary
+          if($('.scroll_tab_right_button', _this).css('display') !== 'none'){
+            this.scrollLeft -= (delta * 30);
+            state.scrollPos = this.scrollLeft;
+            event.preventDefault();
+          }
+        });
+      }
       
       // Set initial scroll position
       $('.scroll_tab_inner', _this).animate({scrollLeft: state.scrollPos + 'px'}, 0);
@@ -65,7 +88,7 @@
         'cursor': 'pointer'
       });
       
-      $('.scroll_tab_inner > span', _this).css({
+      $('.scroll_tab_inner > '+_this.itemTag, _this).css({
         'display': '-moz-inline-stack',
         'display': 'inline-block',
         'zoom':1,
@@ -77,14 +100,6 @@
         '-ms-user-select': 'none',
         '-o-user-select': 'none',
         'user-select': 'none'
-      });
-      
-      $('.scroll_tab_inner > span.scroll_tab_left_finisher', _this).css({
-        'display': 'none'
-      });
-      
-      $('.scroll_tab_inner > span.scroll_tab_right_finisher', _this).css({
-        'display': 'none'
       });
       
       
@@ -113,7 +128,7 @@
           $('.scroll_tab_left_button',_this).hide();
           $('.scroll_tab_inner',_this).css({left: '0px', right: '0px'});
           
-          if($('.scroll_tab_inner > span:not(.scroll_tab_right_finisher):not(.scroll_tab_left_finisher):visible', _this).size() > 0){
+          if($('.scroll_tab_inner > '+_this.itemTag+':not(.scroll_tab_right_finisher):not(.scroll_tab_left_finisher):visible', _this).size() > 0){
             $('.scroll_tab_left_finisher',_this).css('display','inline-block');
             $('.scroll_tab_right_finisher',_this).css('display','inline-block');
           } 
@@ -168,32 +183,32 @@
         $(this).removeClass('scroll_arrow_over').removeClass('scroll_tab_left_button_over');
       });
       
-      $('.scroll_tab_inner > span', this).mouseover(function(){
+      $('.scroll_tab_inner > '+this.itemTag+(this.itemTag !== 'span' ? ', .scroll_tab_inner > span' : ''), this).mouseover(function(){
         $(this).addClass('scroll_tab_over');
         if($(this).hasClass('scroll_tab_left_finisher')){
-          $('.scroll_tab_inner > span.scroll_tab_first', _this).addClass('scroll_tab_over').addClass('scroll_tab_first_over');
+          $('.scroll_tab_inner > '+_this.itemTag+'.scroll_tab_first', _this).addClass('scroll_tab_over').addClass('scroll_tab_first_over');
         }
         if($(this).hasClass('scroll_tab_right_finisher')){
-          $('.scroll_tab_inner > span.scroll_tab_last', _this).addClass('scroll_tab_over').addClass('scroll_tab_last_over');
+          $('.scroll_tab_inner > '+_this.itemTag+'.scroll_tab_last', _this).addClass('scroll_tab_over').addClass('scroll_tab_last_over');
         }
-        if($(this).hasClass('scroll_tab_first') || $('.scroll_tab_inner > span.scroll_tab_last', _this).hasClass('scroll_tab_first')){
+        if($(this).hasClass('scroll_tab_first') || $('.scroll_tab_inner > '+_this.itemTag+'.scroll_tab_last', _this).hasClass('scroll_tab_first')){
           $('.scroll_tab_inner > span.scroll_tab_left_finisher', _this).addClass('scroll_tab_over').addClass('scroll_tab_left_finisher_over');
         }
-        if($(this).hasClass('scroll_tab_last') || $('.scroll_tab_inner > span.scroll_tab_first', _this).hasClass('scroll_tab_last')){
+        if($(this).hasClass('scroll_tab_last') || $('.scroll_tab_inner > '+_this.itemTag+'.scroll_tab_first', _this).hasClass('scroll_tab_last')){
           $('.scroll_tab_inner > span.scroll_tab_right_finisher', _this).addClass('scroll_tab_over').addClass('scroll_tab_right_finisher_over');
         }
       }).mouseout(function(){
         $(this).removeClass('scroll_tab_over');
         if($(this).hasClass('scroll_tab_left_finisher')){
-          $('.scroll_tab_inner > span.scroll_tab_first', _this).removeClass('scroll_tab_over').removeClass('scroll_tab_first_over');
+          $('.scroll_tab_inner > '+_this.itemTag+'.scroll_tab_first', _this).removeClass('scroll_tab_over').removeClass('scroll_tab_first_over');
         }
         if($(this).hasClass('scroll_tab_right_finisher')){
-          $('.scroll_tab_inner > span.scroll_tab_last', _this).removeClass('scroll_tab_over').removeClass('scroll_tab_last_over');
+          $('.scroll_tab_inner > '+_this.itemTag+'.scroll_tab_last', _this).removeClass('scroll_tab_over').removeClass('scroll_tab_last_over');
         }
-        if($(this).hasClass('scroll_tab_first') || $('.scroll_tab_inner > span.scroll_tab_last', _this).hasClass('scroll_tab_first')){
+        if($(this).hasClass('scroll_tab_first') || $('.scroll_tab_inner > '+_this.itemTag+'.scroll_tab_last', _this).hasClass('scroll_tab_first')){
           $('.scroll_tab_inner > span.scroll_tab_left_finisher', _this).removeClass('scroll_tab_over').removeClass('scroll_tab_left_finisher_over');
         }
-        if($(this).hasClass('scroll_tab_last') || $('.scroll_tab_inner > span.scroll_tab_first', _this).hasClass('scroll_tab_last')){
+        if($(this).hasClass('scroll_tab_last') || $('.scroll_tab_inner > '+_this.itemTag+'.scroll_tab_first', _this).hasClass('scroll_tab_last')){
           $('.scroll_tab_inner > span.scroll_tab_right_finisher', _this).removeClass('scroll_tab_over').removeClass('scroll_tab_right_finisher_over');
         }
       }).click(function(e){
@@ -203,15 +218,15 @@
         
         var context_obj = this;
         if($(this).hasClass('scroll_tab_left_finisher')){
-          context_obj = $('.scroll_tab_inner > span.scroll_tab_first', _this).addClass('tab_selected').addClass('scroll_tab_first_selected');
+          context_obj = $('.scroll_tab_inner > '+_this.itemTag+'.scroll_tab_first', _this).addClass('tab_selected').addClass('scroll_tab_first_selected');
         }
         if($(this).hasClass('scroll_tab_right_finisher')){
-          context_obj = $('.scroll_tab_inner > span.scroll_tab_last', _this).addClass('tab_selected').addClass('scroll_tab_last_selected');
+          context_obj = $('.scroll_tab_inner > '+_this.itemTag+'.scroll_tab_last', _this).addClass('tab_selected').addClass('scroll_tab_last_selected');
         }
-        if($(this).hasClass('scroll_tab_first') || $('.scroll_tab_inner > span.scroll_tab_last', _this).hasClass('scroll_tab_first')){
+        if($(this).hasClass('scroll_tab_first') || $('.scroll_tab_inner > '+_this.itemTag+'.scroll_tab_last', _this).hasClass('scroll_tab_first')){
           $('.scroll_tab_inner > span.scroll_tab_left_finisher', _this).addClass('tab_selected').addClass('scroll_tab_left_finisher_selected');
         }
-        if($(this).hasClass('scroll_tab_last') || $('.scroll_tab_inner > span.scroll_tab_first', _this).hasClass('scroll_tab_last')){
+        if($(this).hasClass('scroll_tab_last') || $('.scroll_tab_inner > '+_this.itemTag+'.scroll_tab_first', _this).hasClass('scroll_tab_last')){
           $('.scroll_tab_inner > span.scroll_tab_right_finisher', _this).addClass('tab_selected').addClass('scroll_tab_left_finisher_selected');
         }
         
@@ -222,10 +237,10 @@
       });
       
       // Check to set the edges as selected if needed
-      if($('.scroll_tab_inner > span.scroll_tab_first', _this).hasClass('tab_selected'))
-        $('.scroll_tab_inner > span.scroll_tab_left_finisher', _this).addClass('tab_selected').addClass('scroll_tab_left_finisher_selected');
-      if($('.scroll_tab_inner > span.scroll_tab_last', _this).hasClass('tab_selected'))
-        $('.scroll_tab_inner > span.scroll_tab_right_finisher', _this).addClass('tab_selected').addClass('scroll_tab_right_finisher_selected');
+      if($('.scroll_tab_inner > '+_this.itemTag+'.scroll_tab_first', _this).hasClass('tab_selected'))
+        $('.scroll_tab_inner > '+_this.itemTag+'.scroll_tab_left_finisher', _this).addClass('tab_selected').addClass('scroll_tab_left_finisher_selected');
+      if($('.scroll_tab_inner > '+_this.itemTag+'.scroll_tab_last', _this).hasClass('tab_selected'))
+        $('.scroll_tab_inner > '+_this.itemTag+'.scroll_tab_right_finisher', _this).addClass('tab_selected').addClass('scroll_tab_right_finisher_selected');
     };
     
     var scroll_selected_into_view = function(state){
@@ -262,14 +277,14 @@
         state: state,
         addTab: function(html, position){
           if(typeof(position) === 'undefined'){
-            position = $('.scroll_tab_inner > span', context_obj).length - 2;
+            position = $('.scroll_tab_inner > '+context_obj.itemTag, context_obj).length - (context_obj.itemTag === 'span' ? 2 : 0);
           } 
           
-          $('.scroll_tab_inner > span.scroll_tab_last', context_obj).removeClass('scroll_tab_last');
-          $('.scroll_tab_inner > span.scroll_tab_first', context_obj).removeClass('scroll_tab_first');
+          $('.scroll_tab_inner > '+context_obj.itemTag+'.scroll_tab_last', context_obj).removeClass('scroll_tab_last');
+          $('.scroll_tab_inner > '+context_obj.itemTag+'.scroll_tab_first', context_obj).removeClass('scroll_tab_first');
           backup = "";
           var count = 0;
-          $('.scroll_tab_inner > span', context_obj).each(function(){
+          $('.scroll_tab_inner > '+context_obj.itemTag, context_obj).each(function(){
             if($(this).hasClass('scroll_tab_left_finisher') || $(this).hasClass('scroll_tab_right_finisher')) return true;
             if(position == count){
               backup += html;
@@ -291,18 +306,19 @@
           
           $(jquery_selector_str, context_obj).remove();
           
-          $('.scroll_tab_inner > span.scroll_tab_last', context_obj).removeClass('scroll_tab_last');
-          $('.scroll_tab_inner > span.scroll_tab_first', context_obj).removeClass('scroll_tab_first');
+          $('.scroll_tab_inner > '+context_obj.itemTag+'.scroll_tab_last', context_obj).removeClass('scroll_tab_last');
+          $('.scroll_tab_inner > '+context_obj.itemTag+'.scroll_tab_first', context_obj).removeClass('scroll_tab_first');
 
           this.refreshState();
         },
         destroy: function(){
           clearInterval(state.delay_timer);
           $(context_obj).html(backup);
+          $(context_obj).removeClass('scroll_tabs_container');
         },
         refreshState: function(){
-          $('.scroll_tab_inner > span.scroll_tab_last', context_obj).removeClass('scroll_tab_last');
-          $('.scroll_tab_inner > span.scroll_tab_first', context_obj).removeClass('scroll_tab_first');
+          $('.scroll_tab_inner > '+context_obj.itemTag+'.scroll_tab_last', context_obj).removeClass('scroll_tab_last');
+          $('.scroll_tab_inner > '+context_obj.itemTag+'.scroll_tab_first', context_obj).removeClass('scroll_tab_first');
           backup = $('.scroll_tab_inner',context_obj).html();
           this.destroy();
           initialize.call(context_obj, state);
@@ -315,8 +331,8 @@
           this.refreshFirstLast();
         }, 
         refreshFirstLast: function(){
-          var old_last_item = $('.scroll_tab_inner > span.scroll_tab_last', context_obj);
-          var old_first_item = $('.scroll_tab_inner > span.scroll_tab_first', context_obj);
+          var old_last_item = $('.scroll_tab_inner > '+context_obj.itemTag+'.scroll_tab_last', context_obj);
+          var old_first_item = $('.scroll_tab_inner > '+context_obj.itemTag+'.scroll_tab_first', context_obj);
           
           old_last_item.removeClass('scroll_tab_last');
           old_first_item.removeClass('scroll_tab_first');
@@ -326,12 +342,9 @@
           if(old_first_item.hasClass('tab_selected'))
             $('.scroll_tab_inner > span.scroll_tab_left_finisher', context_obj).removeClass('tab_selected scroll_tab_left_finisher_selected');
           
-          if($('.scroll_tab_inner > span:not(.scroll_tab_right_finisher):not(.scroll_tab_left_finisher):visible', context_obj).size() > 0){
-            $('.scroll_tab_inner > span.scroll_tab_right_finisher', context_obj).show();
-            $('.scroll_tab_inner > span.scroll_tab_left_finisher', context_obj).show();
-
-            var new_last_item = $('.scroll_tab_inner > span:not(.scroll_tab_right_finisher):visible', context_obj).last();
-            var new_first_item = $('.scroll_tab_inner > span:not(.scroll_tab_left_finisher):visible', context_obj).first();
+          if($('.scroll_tab_inner > '+context_obj.itemTag+':not(.scroll_tab_right_finisher):not(.scroll_tab_left_finisher):visible', context_obj).size() > 0){
+            var new_last_item = $('.scroll_tab_inner > '+context_obj.itemTag+':not(.scroll_tab_right_finisher):visible', context_obj).last();
+            var new_first_item = $('.scroll_tab_inner > '+context_obj.itemTag+':not(.scroll_tab_left_finisher):visible', context_obj).first();
             
             new_last_item.addClass('scroll_tab_last');
             new_first_item.addClass('scroll_tab_first');

@@ -105,11 +105,39 @@
         tabSet.addTab('&lt;span&gt;Added Item&lt;/span&gt;');</pre>
       
     </div>
+    
+    <h3 class="section_title">List Sytax (Version 2.0+)</h3>
+
+    <div class="indented_text">
+      <p>ScrollTabs will also handle standard list syntax for greater compatibility with existing lists or other plugins.</p>
+
+      <ul id="tabs7" class="scroll_tabs_theme_light">
+        <li>First Item</li>
+        <li>Second Item</li>
+      </ul>
+      
+      <button type="button" class="btn btn-primary" onclick="javascript:tabs7.addTab('<li>Added Item</li>')">Add Item</button>
+
+      <br /><br />
+
+      <p><strong>HTML:</strong></p>
+      <pre>
+        &lt;ul id=&quot;tabSet&quot; class=&quot;scroll_tabs_theme_light&quot;&gt;
+          &lt;li&gt;First Item&lt;/li&gt;
+          &lt;li&gt;Second Item&lt;/li&gt;
+        &lt;/ul&gt;</pre>
+      
+      <p><strong>JavaScript:</strong></p>
+      <pre>
+        tabSet = $('#tabSet').scrollTabs();
+        tabSet.addTab('&lt;li&gt;Added Item&lt;/li&gt;');</pre>
+      
+    </div>
 
     <h3 class="section_title">Custom Styling</h3>
 
     <div class="indented_text">
-      <p>Basic initialization, without any theme or custom CSS applied.</p>
+      <p>Basic initialization, <em>without any theme</em> or custom CSS applied. Previous examples used the &quot;light&quot; theme: <code>scroll_tabs_theme_light</code>.</p>
 
       <div id="tabs4">
         <span>First Tab</span>
@@ -336,6 +364,7 @@
     var tabs4 = null;
     var tabs5 = null;
     var tabs6 = null;
+    var tabs7 = null;
     $(document).ready(function(){
       $('#tabs1').scrollTabs();
       $('#tabs2').scrollTabs();
@@ -343,6 +372,7 @@
       tabs4 = $('#tabs4').scrollTabs();
       tabs5 = $('#tabs5').scrollTabs();
       tabs6 = $('#tabs6').scrollTabs();
+      tabs7 = $('#tabs7').scrollTabs();
     });
   </script>
 </body>

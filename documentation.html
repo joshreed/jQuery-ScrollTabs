@@ -40,7 +40,21 @@
     <a name="examples"></a>
     <h1>Documentation</h1>
 
-    <h2>Available Options</h2>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Table of Contents</h3>
+      </div>
+      <div class="panel-body" style="background-color: #F6F6F6;">
+        <ul>
+          <li><a href="#options">Available Options</a></li>
+          <li><a href="#api">JavaScript API</a></li>
+          <li><a href="#css">CSS Selectors</a></li>
+          <li><a href="#mousewheel">Mouse Wheel Scrolling</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <h2><a id="options"></a>Available Options</h2>
 
     <p><code>scroll_distance</code> - Pixel width distance for each scroll click. Default: 300 pixels.</p>
     <br />
@@ -70,7 +84,7 @@
       }
     });</pre>
 
-    <h2>API</h2>
+    <h2><a id="api"></a>JavaScript API</h2>
 
     <p>The returned object will have the following methods.</p>
 
@@ -140,7 +154,7 @@
       <strong><code>showTabs(jQuerySelector)</code></strong> - Shows hidden tabs based on the jQuery Selector.
     </p>
     
-    <h2>CSS Selectors</h2>
+    <h2><a id="css"></a>CSS Selectors</h2>
 
     <p>You can override the basic styling CSS to make the look of the tabs as unique as you'd like!</p>
 
@@ -169,6 +183,12 @@
     <br />
     
     <p><strong><code>.scroll_tab_right_button</code></strong> - The DOM element for the right button (that scrolls the grouping right). Additional selectors available to change the styling under the specified circumstances: <code>.scroll_tab_right_button_over</code> (Hover) and <code>.scroll_tab_right_button_disabled</code> (Not Clickable--already scrolled all the way in this direction).</p>
+    
+    <h2><a id="mousewheel"></a>Mouse Wheel Scrolling</h2>
+
+    <p>Mouse wheel scrolling requires the jQuery Mousewheel plugin to be installed, which is bundled with this download. All credit goes to Brandon Aaron (<a href="http://brandonaaron.net">http://brandonaaron.net</a>) for this fantastic plugin.</p>
+    
+    <p><strong>Disabling Mouse Wheel Scrolling:</strong> simply do not include the jQuery Mousewheel plugin.</p>
   </div>
 
 
@@ -186,14 +206,5 @@
   
   <script src="js/jquery.scrolltabs.js"></script>
   <script src="js/jquery.mousewheel.js"></script>
-
-  <script type="text/javascript">
-    var tabs3 = null;
-    $(document).ready(function(){
-      $('#tabs1').scrollTabs();
-      $('#tabs2').scrollTabs();
-      tabs3 = $('#tabs3').scrollTabs();
-    });
-  </script>
 </body>
 </html>
