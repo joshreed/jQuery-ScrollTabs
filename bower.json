@@ -11,6 +11,12 @@
     "./js/jquery.mousewheel.js", 
     "./css/scrolltabs.css"
   ],
+  "ignore": [
+    "*.psd",
+    "*.html",
+    "*.md",
+    "examples/*"
+  ],
   "moduleType": [
     "globals"
   ],
