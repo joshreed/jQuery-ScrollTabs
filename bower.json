@@ -15,7 +15,8 @@
     "*.psd",
     "*.html",
     "*.md",
-    "examples/*"
+    "examples",
+    "scrolltabs.jquery.json"
   ],
   "moduleType": [
     "globals"
