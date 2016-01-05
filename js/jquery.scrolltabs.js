@@ -31,7 +31,10 @@
       $(this.itemTag, this).last().addClass('scroll_tab_last');
       $(this.itemTag, this).first().addClass('scroll_tab_first');
       
-      $(this).html("<div class='scroll_tab_left_button'>"+opts.left_arrow_content_html+"</div><div class='scroll_tab_inner'><span class='scroll_tab_left_finisher'>&nbsp;</span>"+$(this).html()+"<span class='scroll_tab_right_finisher'>&nbsp;</span></div><div class='scroll_tab_right_button'>"+opts.right_arrow_content_html+"</div>");
+      $(this).html("<div class='scroll_tab_left_button'></div><div class='scroll_tab_inner'><span class='scroll_tab_left_finisher'>&nbsp;</span>"+$(this).html()+"<span class='scroll_tab_right_finisher'>&nbsp;</span></div><div class='scroll_tab_right_button'></div>");
+
+      $(".scroll_tab_left_button", this).append($(opts.left_arrow_content_html));
+      $(".scroll_tab_right_button", this).append($(opts.right_arrow_content_html));
       
       $('.scroll_tab_inner > span.scroll_tab_left_finisher', this).css({
         'display': 'none'
