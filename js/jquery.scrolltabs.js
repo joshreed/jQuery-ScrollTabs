@@ -131,7 +131,7 @@
           $('.scroll_tab_left_button',_this).hide();
           $('.scroll_tab_inner',_this).css({left: '0px', right: '0px'});
           
-          if($('.scroll_tab_inner > '+_this.itemTag+':not(.scroll_tab_right_finisher):not(.scroll_tab_left_finisher):visible', _this).size() > 0){
+          if($('.scroll_tab_inner > '+_this.itemTag+':not(.scroll_tab_right_finisher):not(.scroll_tab_left_finisher):visible', _this).length > 0){
             $('.scroll_tab_left_finisher',_this).css('display','inline-block');
             $('.scroll_tab_right_finisher',_this).css('display','inline-block');
           } 
@@ -345,7 +345,7 @@
           if(old_first_item.hasClass('tab_selected'))
             $('.scroll_tab_inner > span.scroll_tab_left_finisher', context_obj).removeClass('tab_selected scroll_tab_left_finisher_selected');
           
-          if($('.scroll_tab_inner > '+context_obj.itemTag+':not(.scroll_tab_right_finisher):not(.scroll_tab_left_finisher):visible', context_obj).size() > 0){
+          if($('.scroll_tab_inner > '+context_obj.itemTag+':not(.scroll_tab_right_finisher):not(.scroll_tab_left_finisher):visible', context_obj).length > 0){
             var new_last_item = $('.scroll_tab_inner > '+context_obj.itemTag+':not(.scroll_tab_right_finisher):visible', context_obj).last();
             var new_first_item = $('.scroll_tab_inner > '+context_obj.itemTag+':not(.scroll_tab_left_finisher):visible', context_obj).first();
             
